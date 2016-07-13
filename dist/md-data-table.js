@@ -33,19 +33,19 @@ angular.module('md-table-pagination.html', []).run(['$templateCache', function($
     '  <div class="label">{{$pagination.min()}} - {{$pagination.max()}} {{$pagination.label.of}} {{$pagination.total}}</div>\n' +
     '\n' +
     '  <md-button class="md-icon-button" type="button" ng-if="$pagination.showBoundaryLinks()" ng-click="$pagination.first()" ng-disabled="$pagination.disabled || !$pagination.hasPrevious()" aria-label="First">\n' +
-    '    <md-icon md-svg-icon="navigate-first.svg"></md-icon>\n' +
+    '    <md-icon md-icon="navigate-first.svg"></md-icon>\n' +
     '  </md-button>\n' +
     '\n' +
     '  <md-button class="md-icon-button" type="button" ng-click="$pagination.previous()" ng-disabled="$pagination.disabled || !$pagination.hasPrevious()" aria-label="Previous">\n' +
-    '    <md-icon md-svg-icon="navigate-before.svg"></md-icon>\n' +
+    '    <md-icon md-icon="navigate-before.svg"></md-icon>\n' +
     '  </md-button>\n' +
     '\n' +
     '  <md-button class="md-icon-button" type="button" ng-click="$pagination.next()" ng-disabled="$pagination.disabled || !$pagination.hasNext()" aria-label="Next">\n' +
-    '    <md-icon md-svg-icon="navigate-next.svg"></md-icon>\n' +
+    '    <md-icon md-icon="navigate-next.svg"></md-icon>\n' +
     '  </md-button>\n' +
     '\n' +
     '  <md-button class="md-icon-button" type="button" ng-if="$pagination.showBoundaryLinks()" ng-click="$pagination.last()" ng-disabled="$pagination.disabled || !$pagination.hasNext()" aria-label="Last">\n' +
-    '    <md-icon md-svg-icon="navigate-last.svg"></md-icon>\n' +
+    '    <md-icon md-icon="navigate-last.svg"></md-icon>\n' +
     '  </md-button>\n' +
     '</div>');
 }]);
@@ -1280,7 +1280,7 @@ function mdTable() {
 
 angular.module('md.data.table').directive('mdTablePagination', mdTablePagination);
 
-function mdTablePagination() {
+function mdTablePagination($templateCache) {
 
   function compile(tElement) {
     tElement.addClass('md-table-pagination');
@@ -1403,13 +1403,13 @@ function mdTablePagination() {
     controllerAs: '$pagination',
     restrict: 'E',
     scope: {},
-    templateUrl: 'md-table-pagination.html'
+    template: $templateCache.get('md-table-pagination.html')
   };
 }
 
 angular.module('md.data.table').directive('mdTableProgress', mdTableProgress);
 
-function mdTableProgress() {
+function mdTableProgress($templateCache) {
 
   function postLink(scope, element, attrs, tableCtrl) {
     scope.columnCount = tableCtrl.columnCount;
@@ -1421,7 +1421,7 @@ function mdTableProgress() {
     require: '^^mdTable',
     restrict: 'C',
     scope: {},
-    templateUrl: 'md-table-progress.html'
+    template: $templateCache.get('md-table-progress.html')
   };
 }
 
