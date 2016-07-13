@@ -2,7 +2,7 @@
 
 angular.module('md.data.table').directive('mdTableProgress', mdTableProgress);
 
-function mdTableProgress() {
+function mdTableProgress($templateCache) {
 
   function postLink(scope, element, attrs, tableCtrl) {
     scope.columnCount = tableCtrl.columnCount;
@@ -14,6 +14,6 @@ function mdTableProgress() {
     require: '^^mdTable',
     restrict: 'C',
     scope: {},
-    templateUrl: 'md-table-progress.html'
+    template: $templateCache.get('md-table-progress.html')
   };
 }

@@ -2,7 +2,7 @@
 
 angular.module('md.data.table').directive('mdTablePagination', mdTablePagination);
 
-function mdTablePagination() {
+function mdTablePagination($templateCache) {
 
   function compile(tElement) {
     tElement.addClass('md-table-pagination');
@@ -125,6 +125,6 @@ function mdTablePagination() {
     controllerAs: '$pagination',
     restrict: 'E',
     scope: {},
-    templateUrl: 'md-table-pagination.html'
+    template: $templateCache.get('md-table-pagination.html')
   };
 }
