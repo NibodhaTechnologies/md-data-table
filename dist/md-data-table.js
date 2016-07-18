@@ -1403,7 +1403,9 @@ function mdTablePagination($templateCache) {
     controllerAs: '$pagination',
     restrict: 'E',
     scope: {},
-    template: $templateCache.get('md-table-pagination.html')
+    templateUrl: function (elem, attributes) {
+      return attributes.templateUrl || 'md-table-pagination.html';
+    }
   };
 }
 
@@ -1421,7 +1423,9 @@ function mdTableProgress($templateCache) {
     require: '^^mdTable',
     restrict: 'C',
     scope: {},
-    template: $templateCache.get('md-table-progress.html')
+    templateUrl: function (elem, attributes) {
+      return attributes.templateUrl || 'md-table-progress.html';
+    }
   };
 }
 

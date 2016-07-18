@@ -125,6 +125,8 @@ function mdTablePagination($templateCache) {
     controllerAs: '$pagination',
     restrict: 'E',
     scope: {},
-    template: $templateCache.get('md-table-pagination.html')
+    templateUrl: function (elem, attributes) {
+      return attributes.templateUrl || 'md-table-pagination.html';
+    }
   };
 }
